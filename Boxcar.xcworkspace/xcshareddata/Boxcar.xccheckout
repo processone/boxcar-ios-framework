@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4AEA528D-8E7D-4D42-BE74-E50BB2FECDD4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Boxcar</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>898E5948B4120E2DB00C6946D6DE0AE41A8CE777</key>
+		<string>ssh://github.com/mremond/boxcar-ios-framework.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Boxcar.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>898E5948B4120E2DB00C6946D6DE0AE41A8CE777</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/mremond/boxcar-ios-framework.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>898E5948B4120E2DB00C6946D6DE0AE41A8CE777</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>898E5948B4120E2DB00C6946D6DE0AE41A8CE777</string>
+			<key>IDESourceControlWCCName</key>
+			<string>boxcar-ios-framework</string>
+		</dict>
+	</array>
+</dict>
+</plist>

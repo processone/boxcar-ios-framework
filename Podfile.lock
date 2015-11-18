@@ -1,0 +1,26 @@
+PODS:
+  - Kiwi/ARC (2.2.4)
+  - Kiwi/NonARC (2.2.4)
+  - Kiwi/XCTest (2.2.4):
+    - Kiwi/ARC
+    - Kiwi/NonARC
+  - OCHamcrest (3.0.1)
+  - OCMock (2.2.3)
+  - OHHTTPStubs (3.1.0)
+  - xctest-assert-eventually (0.1.1):
+    - OCHamcrest
+
+DEPENDENCIES:
+  - Kiwi/XCTest
+  - OCMock
+  - OHHTTPStubs
+  - xctest-assert-eventually
+
+SPEC CHECKSUMS:
+  Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
+  OCHamcrest: 782c52ae8c673e5d6060a65005cfd26d20d519ba
+  OCMock: 74e4ddbcef134170dcc844f91c691f13868075d7
+  OHHTTPStubs: d67c42c0212f0883ddb8592375aa0dc00dc50a36
+  xctest-assert-eventually: e42d7f59735d03a50ab9c1047275bb27deb1d16d
+
+COCOAPODS: 0.29.0
