@@ -10,7 +10,7 @@
 
 #ifndef EC_DEBUG
 #ifndef EC_RELEASE
-#error You must define either EC_DEBUG or EC_RELEASE
+//#error You must define either EC_DEBUG or EC_RELEASE
 #endif
 #endif
 
