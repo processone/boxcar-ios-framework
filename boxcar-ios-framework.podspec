@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "boxcar-ios-framework"
-s.version          = "1.0.2"
+s.version          = "1.0.3"
 s.summary          = "iOS Push Framework for Boxcar"
 
 s.osx.deployment_target = '10.7'
@@ -31,10 +31,14 @@ s.source           = { :git => "https://github.com/processone/boxcar-ios-framewo
 s.platform     = :ios, '7.0'
 s.requires_arc = true
 
-s.source_files = ['Boxcar/**/*', 'Libraries/ECLogging/**/*', 'Libraries/AFNetworking/**/*']
+s.source_files = ['Boxcar/**/*', 'Libraries/ECLogging/**/*', 'Libraries/AFNetworking/**/*', 'module/module.modulemap']
 #, 'Libraries/**/*'
+
+s.preserve_path = 'module/module.modulemap'
+s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/module', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 
 s.frameworks = 'UIKit', 'AdSupport', 'Foundation', 'SystemConfiguration', 'MobileCoreServices'
 s.dependency 'OHHTTPStubs'
 s.dependency 'OCMock'
+
 end

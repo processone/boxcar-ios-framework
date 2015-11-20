@@ -1,0 +1,9 @@
+module asl [system] {
+	header "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/include/asl.h"
+	export *
+}
+
+module aslSimu [system] {
+	header "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/asl.h"
+	export *
+}
