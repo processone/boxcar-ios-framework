@@ -31,7 +31,7 @@ s.source           = { :git => "https://github.com/processone/boxcar-ios-framewo
 s.platform     = :ios, '7.0'
 s.requires_arc = true
 
-s.source_files = 'Pod/Classes/**/*'
+#s.source_files = {'Boxcar/**/*', 'Libraries/**/*'}
 
 s.frameworks = 'UIKit', 'AdSupport', 'Foundation', 'SystemConfiguration', 'MobileCoreServices'
 s.dependency 'OHHTTPStubs'
