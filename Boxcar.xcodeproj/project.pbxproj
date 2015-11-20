@@ -940,6 +940,7 @@
 					"EC_RELEASE=1",
 					"$(inherited)",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = (
 					"-Wno-gnu",
 					"-Wno-error=date-time",
@@ -947,6 +948,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Boxcar/Boxcar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WARNING_CFLAGS = "-Wno-error=date-time ";
 			};
 			name = Debug;
@@ -963,6 +966,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Boxcar/Boxcar-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "EC_RELEASE=1";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = (
 					"-Wno-gnu",
 					"-Wno-error=date-time",
@@ -970,6 +974,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Boxcar/Boxcar-Bridging-Header.h";
 				WARNING_CFLAGS = "-Wno-error=date-time ";
 			};
 			name = Release;
