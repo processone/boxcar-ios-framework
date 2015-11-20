@@ -22,20 +22,18 @@ Enable push notification in your app easily with Boxcar framework
 DESC
 
 s.homepage         = "https://github.com/processone/boxcar-ios-framework"
-# s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
 s.license          = 'MIT'
 s.author           = { "ProcessOne" => "pmglemaire@gmail.com" }
 s.source           = { :git => "https://github.com/processone/boxcar-ios-framework.git", :tag => s.version.to_s }
-# s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
 s.platform     = :ios, '7.0'
 s.requires_arc = true
 
-s.source_files = ['Boxcar/**/*', 'Libraries/ECLogging/**/*', 'Libraries/AFNetworking/**/*', 'module/module.modulemap']
-#, 'Libraries/**/*'
-
+s.module_map = 'module/module.modulemap'
 s.preserve_path = 'module/module.modulemap'
-s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/module', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(inherited)' '"${PODS_ROOT}/module"' '"$(SRCROOT)/module"' "$(SRCROOT)/Pods/Headers/", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+
+s.source_files = ['Boxcar/**/*', 'Libraries/ECLogging/**/*', 'Libraries/AFNetworking/**/*', 'module/module.modulemap']
 
 s.frameworks = 'UIKit', 'AdSupport', 'Foundation', 'SystemConfiguration', 'MobileCoreServices'
 s.dependency 'OHHTTPStubs'
