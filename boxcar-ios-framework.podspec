@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "boxcar-ios-framework"
-s.version          = "1.0.1"
+s.version          = "1.0.2"
 s.summary          = "iOS Push Framework for Boxcar"
 
 s.osx.deployment_target = '10.7'
