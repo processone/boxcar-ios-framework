@@ -11,8 +11,11 @@ Updating Marketing version:
 
 # Building the framework for delivery
 
-The framework is build from the Framework target.
+The framework is built from the Framework target.
 Make sure active scheme target simulator and not device.
+
+To generate all architecture, we need to build with archive. This is mandatory before we can release, otherwise app cannot be released from simulator.
+
 If successful, a new DMG is generated in the package directory.
 
 Check that the build contain all needed architectures before release:
