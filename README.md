@@ -31,3 +31,6 @@ git archive HEAD --format=zip > boxcar-ios-demo-1.0.8.zip
 # Troubleshooting
 You can put the framework in debug mode (with more debug logging) with the command:
 	[[Boxcar sharedInstance] dbm];
+
+# SWIFT
+You can use the franwork with Swift,  you just need to add "${PODS_ROOT}/module" in the Pods's HEADER_SEARCH_PATHS to allow Xcode to recognize the modulemap file needed to compile.

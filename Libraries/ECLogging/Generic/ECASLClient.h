@@ -6,7 +6,12 @@
 // --------------------------------------------------------------------------
 
 @import Foundation;
-#import <asl.h>
+#if !(TARGET_IPHONE_SIMULATOR)
+@import asl;
+#else
+@import aslSimu;
+#endif
+//#import <asl.h>
 
 @interface ECASLClient : NSObject
 {
