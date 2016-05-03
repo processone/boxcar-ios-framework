@@ -39,6 +39,8 @@
     BXCEventStream *eventStream;
 }
 
+@synthesize mode = _mode;
+
 /* Always used the shared instance class method to access Boxcar instance singleton. */
 + (id)sharedInstance {
 	static Boxcar *sharedInstance = nil;
@@ -252,8 +254,8 @@ TODO:
         return;
     }
     
-    // DLog(@"My Mode is %@", mode);
-    NSString *previousMode = self.mode;
+    // DLog(@"My Mode is %@", self.settings.mode);
+    NSString *previousMode = self.settings.mode;
     [[self settings] setMode:mode];
 
     if (![mode isEqualToString:previousMode]) {
