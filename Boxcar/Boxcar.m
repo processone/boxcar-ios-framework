@@ -286,7 +286,9 @@ TODO:
     // Support for iOS 10
   if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    center.delegate = self.NCDelegate;
+    if (self.NCDelegate != nil) {
+      center.delegate = self.NCDelegate;
+    }
     [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
       if( !error ){
         [center setNotificationCategories:self.categories];
