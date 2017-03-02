@@ -12,7 +12,7 @@ Updating Marketing version:
 # Building the framework for delivery
 
 The framework is built from the Framework target.
-Make sure active scheme target simulator and not device.
+Make sure active scheme target simulator and not device. In latest version, I had to use generic iOS device as Target.
 
 To generate all architecture, we need to build with archive. This is mandatory before we can release, otherwise app cannot be released from simulator.
 
