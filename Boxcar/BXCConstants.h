@@ -1,7 +1,7 @@
 //
 //  BXCConstants.h
 //
-//  Copyright (c) 2012-2014 ProcessOne. All rights reserved.
+//  Copyright (c) 2012-2017 ProcessOne. All rights reserved.
 //
 
 #ifndef Boxcar_BXCConstants_h

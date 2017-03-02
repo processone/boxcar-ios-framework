@@ -1,6 +1,6 @@
 /*
  
- Copyright (c) 2012-2014 ProcessOne SARL. All rights reserved.
+ Copyright (c) 2012-2017 ProcessOne SARL. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -28,10 +28,10 @@
 
 @implementation BXCMobileProvision
 
-/**
- *  Analyze embedded.mobileprovision file to decide if we need to use production or sandbox for push notifications
- *
- *  @return either @"production" or @"development"
+/*
+  Analyze embedded.mobileprovision file to decide if we need to use production or sandbox for push notifications
+  
+  @return either @"production" or @"development"
  */
 + (NSString *)getAPNSMode {
     NSDictionary *mobileProvision = [self readMobileProvision];
@@ -48,11 +48,11 @@
     }
 }
 
-/**
- *  Read the embedded.mobileprovision file embedded in the app and return a dictionary containing parsed
- *  content.
- *
- *  @return an NSDictionary containing the extracted .plist content from embedded.mobile.provision file
+/* 
+ Read the embedded.mobileprovision file embedded in the app and return a dictionary containing parsed
+ content.
+ 
+ @return an NSDictionary containing the extracted .plist content from embedded.mobile.provision file
  */
 + (NSDictionary*)readMobileProvision {
     NSString *mobileProvisionPath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];

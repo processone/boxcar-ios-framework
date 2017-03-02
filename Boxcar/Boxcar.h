@@ -1,6 +1,6 @@
 /*
  
- Copyright (c) 2012-2014 ProcessOne SARL. All rights reserved.
+ Copyright (c) 2012-2017 ProcessOne SARL. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -29,6 +29,8 @@
 #import "BXCConstants.h"
 #import "BXCSettings.h"
 #import "BXCEventStream.h"
+
+#import <UserNotifications/UserNotifications.h>
 
 typedef NS_ENUM(NSUInteger, BXCClientNotificationMode) {
     BXCClientNotificationModeForeground,
@@ -67,6 +69,7 @@ typedef NS_ENUM(NSUInteger, BXCAPNSService) {
 @interface Boxcar : NSObject <BXCEventStreamDelegate>
 
 @property(nonatomic, weak) id <BoxcarDelegate> delegate;
+@property(nonatomic, weak) id <UNUserNotificationCenterDelegate> NCDelegate;
 
 @property(nonatomic, copy)   NSString *clientKey;
 @property(nonatomic, copy)   NSString *clientSecret;
@@ -112,7 +115,7 @@ NSDictionary *boxcarOptions = @{
  kBXC_CLIENT_SECRET: @"MYCLIENTSECRET",
  kBXC_API_URL: @"https://boxcar-api.io",
  kBXC_LOGGING: @YES};
-[[Boxcar sharedInstance] startWithOptions:boxcarOptions error:nil];
+[[Boxcar sharedInstance] startWithOptions:boxcarOptions delegate:self error:nil];
 @/textblock
 </pre>
 */
@@ -125,6 +128,9 @@ typedef void (^BXCExtractNotificationCompletionBlock)(NSDictionary *notification
 
 /* Start services: Logging & Register Device */
 - (BOOL)startWithOptions:(NSDictionary *)options error:(NSError *)error;
+
+/* Start services: Logging, Register Device & Defines UNUserNotificationCenterDelegate */
+- (BOOL)startWithOptions:(NSDictionary *)options delegate:(id <UNUserNotificationCenterDelegate>)delegate error:(NSError *)error;
 
 /* Will return the Remote Notification Options in the completion block */
 - (void)extractRemoteNotificationFromLaunchOptions:(NSDictionary *)launchOptions completionBlock:(BXCExtractNotificationCompletionBlock)completionBlock;

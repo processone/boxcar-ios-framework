@@ -3,7 +3,7 @@
 //  Boxcar
 //
 //  Created by Paul on 29/10/2015.
-//  Copyright © 2015 ProcessOne. All rights reserved.
+//  Copyright © 2017 ProcessOne. All rights reserved.
 //
 
 import Foundation

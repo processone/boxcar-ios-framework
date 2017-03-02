@@ -1,6 +1,6 @@
 /*
  
- Copyright (c) 2012-2014 ProcessOne SARL. All rights reserved.
+ Copyright (c) 2012-2017 ProcessOne SARL. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -26,6 +26,9 @@
 
 #ifndef Boxcar_BXCMacros_h
 #define Boxcar_BXCMacros_h
+
+#define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 
 #ifdef DEBUG
 #   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

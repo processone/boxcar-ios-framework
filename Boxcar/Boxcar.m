@@ -1,6 +1,6 @@
 /*
  
- Copyright (c) 2012-2014 ProcessOne SARL. All rights reserved.
+ Copyright (c) 2012-2017 ProcessOne SARL. All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -78,13 +78,20 @@
 
 /* Start services: Logging, Register Device, and set Mode */
 - (void)startWithOptions:(NSDictionary *)options andMode:(NSString *)mode completionBlock:(BXCStartCompletionBlock)completionBlock {
-	[[Boxcar sharedInstance] startWithOptions:options error:nil];
+  [[Boxcar sharedInstance] startWithOptions:options delegate:nil error:nil];
 	[[Boxcar sharedInstance] setMode:mode];
 	completionBlock(nil);
 }
 
 /* Start services: Logging & Register Device */
 - (BOOL)startWithOptions:(NSDictionary *)options error:(NSError *)error {
+  [[Boxcar sharedInstance] startWithOptions:options delegate:nil error:nil];
+  return YES;
+}
+
+/* Start services: Logging, Register Device & Defines UNUserNotificationCenterDelegate */
+- (BOOL)startWithOptions:(NSDictionary *)options delegate:(id <UNUserNotificationCenterDelegate>)delegate error:(NSError *)error {
+    self.NCDelegate = delegate;
     self.clientKey = options[kBXC_CLIENT_KEY];
     self.clientSecret = options[kBXC_CLIENT_SECRET];
 	
@@ -276,13 +283,27 @@ TODO:
     ECLog(DebugChannel, @"Registering for user notifications");
     UIApplication *application = [UIApplication sharedApplication];
 	
+    // Support for iOS 10
+  if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self.NCDelegate;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
+      if( !error ){
+        [center setNotificationCategories:self.categories];
+        [application registerForRemoteNotifications];
+      }
+    }];
+  } else {
+    // Support for iOS 9
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationType)(UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound) categories:self.categories];
         [application registerForRemoteNotifications];
         [application registerUserNotificationSettings:settings];
     } else {
+      // Support for versions prior to iOS 9
         [application registerForRemoteNotificationTypes:(UIRemoteNotificationType)(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)];
     }
+  }
 }
 
 /* Only update the settings if we have a token */

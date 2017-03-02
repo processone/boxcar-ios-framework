@@ -3,7 +3,7 @@
 //  Boxcar
 //
 //  Created by Paul on 30/10/2015.
-//  Copyright © 2015 ProcessOne. All rights reserved.
+//  Copyright © 2017 ProcessOne. All rights reserved.
 //
 
 import Foundation
@@ -124,8 +124,8 @@ class BoxcarLogicTests : XCTestCase {
 			XCTAssertNil(error, "error should be nil")
 			
 			if let HTTPResponse = response as? NSHTTPURLResponse,
-				responseURL = HTTPResponse.URL,
-				MIMEType = HTTPResponse.MIMEType
+				let responseURL = HTTPResponse.URL,
+				let MIMEType = HTTPResponse.MIMEType
 			{
 				XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
 				XCTAssertEqual(HTTPResponse.statusCode, 200, "HTTP response status code should be 200")
@@ -169,8 +169,8 @@ class BoxcarLogicTests : XCTestCase {
 			XCTAssertNil(error, "error should be nil")
 			print(error)
 			if let HTTPResponse = response as? NSHTTPURLResponse,
-				responseURL = HTTPResponse.URL,
-				MIMEType = HTTPResponse.MIMEType
+				let responseURL = HTTPResponse.URL,
+				let MIMEType = HTTPResponse.MIMEType
 			{
 				XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
 				XCTAssertEqual(HTTPResponse.statusCode, 500, "HTTP response status code should be 500")
@@ -217,8 +217,8 @@ class BoxcarLogicTests : XCTestCase {
 			XCTAssertNil(error, "error should be nil")
 			
 			if let HTTPResponse = response as? NSHTTPURLResponse,
-				responseURL = HTTPResponse.URL,
-				MIMEType = HTTPResponse.MIMEType
+				let responseURL = HTTPResponse.URL,
+				let MIMEType = HTTPResponse.MIMEType
 			{
 				XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
 				XCTAssertEqual(HTTPResponse.statusCode, 204, "HTTP response status code should be 204")
@@ -262,8 +262,8 @@ class BoxcarLogicTests : XCTestCase {
 			XCTAssertNil(error, "error should be nil")
 						print(error)
 			if let HTTPResponse = response as? NSHTTPURLResponse,
-				responseURL = HTTPResponse.URL,
-				MIMEType = HTTPResponse.MIMEType
+				let responseURL = HTTPResponse.URL,
+				let MIMEType = HTTPResponse.MIMEType
 			{
 				XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
 				XCTAssertEqual(HTTPResponse.statusCode, 200, "HTTP response status code should be 200")
