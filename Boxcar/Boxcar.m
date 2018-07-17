@@ -102,7 +102,7 @@
         self.apiURL = [NSURL URLWithString:BXCDefaultAPIURL];
     }
     
-    if (options[kBXC_LOGGING]) {
+    if ([options[kBXC_LOGGING] isEqual: @YES]) {
         [BXCLogging startup];
         [BXCLogging MainChannel:true];
     }
