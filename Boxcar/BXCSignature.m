@@ -37,17 +37,20 @@
     const char *cKey = [secret cStringUsingEncoding:NSASCIIStringEncoding];
     const char *cData = [contentToSign cStringUsingEncoding:NSUTF8StringEncoding];
 
-    unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
-    CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
-
-    NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:CC_SHA1_DIGEST_LENGTH];
-
-    NSString *signature = [NSString stringWithString:[HMAC description]];
-    signature = [signature stringByReplacingOccurrencesOfString:@" " withString:@""];
-    signature = [signature stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    signature = [signature stringByReplacingOccurrencesOfString:@">" withString:@""];
-
-    return signature;
+    if (cKey != NULL) {
+        unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
+        CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+        
+        NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:CC_SHA1_DIGEST_LENGTH];
+        
+        NSString *signature = [NSString stringWithString:[HMAC description]];
+        signature = [signature stringByReplacingOccurrencesOfString:@" " withString:@""];
+        signature = [signature stringByReplacingOccurrencesOfString:@"<" withString:@""];
+        signature = [signature stringByReplacingOccurrencesOfString:@">" withString:@""];
+        
+        return signature;
+    }
+    return @"";
 }
 
 /* Build the URL */
