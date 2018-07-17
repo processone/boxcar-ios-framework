@@ -57,7 +57,7 @@ typedef NS_ENUM(NSUInteger, BXCAPNSService) {
 /**
  Boxcar is a singleton that encapsulate interface to Boxcar Push Platform.
  
- @copyright ProcessOne © 2012-2014
+ @copyright ProcessOne © 2012-2017
  
  The framework integrates two types of push notifications:
  1. Full support for *Apple Push Notification Service* (APNS).
