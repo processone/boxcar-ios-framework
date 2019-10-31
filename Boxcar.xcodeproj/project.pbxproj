@@ -101,6 +101,8 @@
 		02E5255B16FA628C0030AD8C /* UIImageView+BXCNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E5253C16FA628C0030AD8C /* UIImageView+BXCNetworking.m */; };
 		02EB63AB18DC7D8900B668CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EB63AA18DC7D8900B668CD /* UIKit.framework */; };
 		4E5233B12833647B563338B5 /* BXCEventStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E52393C64067894E5CDE702 /* BXCEventStream.m */; };
+		69C4809B236B152900968C67 /* BXCUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C48099236B152900968C67 /* BXCUtilities.h */; };
+		69C4809C236B152900968C67 /* BXCUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C4809A236B152900968C67 /* BXCUtilities.m */; };
 		DABEE9561BE22DE800336654 /* BXCSettingsLogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABEE9551BE22DE800336654 /* BXCSettingsLogicTest.swift */; };
 		DABEE95A1BE2335400336654 /* BXCSignatureLogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABEE9591BE2335400336654 /* BXCSignatureLogicTest.swift */; };
 		DABEE95C1BE2730F00336654 /* BXCPersistenceLogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABEE95B1BE2730F00336654 /* BXCPersistenceLogicTest.swift */; };
@@ -231,6 +233,8 @@
 		02EB63B218DC80F100B668CD /* libPods-BoxcarTests-OHHTTPStubs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-BoxcarTests-OHHTTPStubs.a"; path = "Pods/build/Debug-iphoneos/libPods-BoxcarTests-OHHTTPStubs.a"; sourceTree = "<group>"; };
 		02F81AE218DC854700F1711B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4E52393C64067894E5CDE702 /* BXCEventStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BXCEventStream.m; sourceTree = "<group>"; };
+		69C48099236B152900968C67 /* BXCUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BXCUtilities.h; sourceTree = "<group>"; };
+		69C4809A236B152900968C67 /* BXCUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BXCUtilities.m; sourceTree = "<group>"; };
 		DABEE9541BE22DE700336654 /* BoxcarTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BoxcarTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		DABEE9551BE22DE800336654 /* BXCSettingsLogicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BXCSettingsLogicTest.swift; sourceTree = "<group>"; };
 		DABEE9591BE2335400336654 /* BXCSignatureLogicTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BXCSignatureLogicTest.swift; sourceTree = "<group>"; };
@@ -414,6 +418,8 @@
 				02AE799E173166F9009183F3 /* BXCLogging.m */,
 				027E02CC1A2BC040004ED3DB /* BXCMobileProvision.h */,
 				027E02CD1A2BC040004ED3DB /* BXCMobileProvision.m */,
+				69C48099236B152900968C67 /* BXCUtilities.h */,
+				69C4809A236B152900968C67 /* BXCUtilities.m */,
 			);
 			path = Boxcar;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				02E5255716FA628C0030AD8C /* BXCXMLRequestOperation.h in Headers */,
 				02E5255A16FA628C0030AD8C /* UIImageView+BXCNetworking.h in Headers */,
 				0214E09317315A970090F720 /* ECASLClient.h in Headers */,
+				69C4809B236B152900968C67 /* BXCUtilities.h in Headers */,
 				0214E09617315A970090F720 /* ECAssertion.h in Headers */,
 				0214E09917315A970090F720 /* ECErrorAndMessage.h in Headers */,
 				0214E09C17315A970090F720 /* ECErrorReporter.h in Headers */,
@@ -688,10 +695,11 @@
 			};
 			buildConfigurationList = 02E524CB16FA555E0030AD8C /* Build configuration list for PBXProject "Boxcar" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 02E524C716FA555E0030AD8C;
 			productRefGroup = 02E524D116FA555E0030AD8C /* Products */;
@@ -779,6 +787,7 @@
 			files = (
 				02E5251A16FA61BA0030AD8C /* BXCConstants.m in Sources */,
 				02E5251E16FA61BA0030AD8C /* BXCJSON.m in Sources */,
+				69C4809C236B152900968C67 /* BXCUtilities.m in Sources */,
 				02E5252116FA61BA0030AD8C /* BXCPersistence.m in Sources */,
 				02E5252316FA61BA0030AD8C /* Boxcar.m in Sources */,
 				02E5252516FA61BA0030AD8C /* BXCSettings.m in Sources */,
@@ -1015,7 +1024,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BoxcarTests/BoxcarTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1049,7 +1058,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.boxcar.api.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BoxcarTests/BoxcarTests-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

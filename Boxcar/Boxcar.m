@@ -32,6 +32,7 @@
 #import "BXCLogging.h"
 #import "BXCJSONRequestOperation.h"
 #import "BXCMobileProvision.h"
+#import "BXCUtilities.h"
 
 @import AdSupport.ASIdentifierManager;
 
@@ -42,7 +43,7 @@
 @synthesize mode = _mode;
 
 /* Always used the shared instance class method to access Boxcar instance singleton. */
-+ (id)sharedInstance {
++ (Boxcar *)sharedInstance {
 	static Boxcar *sharedInstance = nil;
 	static dispatch_once_t token;
 	
@@ -292,7 +293,10 @@ TODO:
     [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
       if( !error ){
         [center setNotificationCategories:self.categories];
-        [application registerForRemoteNotifications];
+        // call it on main thread to avoid warning accessing UI method from background thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [application registerForRemoteNotifications];
+        });
       }
     }];
   } else {
@@ -322,8 +326,7 @@ TODO:
 
 /* Will parse and set the token on server */
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData* )deviceToken {
-    NSString *stringToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    stringToken = [stringToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *stringToken = [BXCUtilities formatedBytesFromDatas:deviceToken];
 
     ECLog(MainChannel, @"Received Token: %@", stringToken);
 
