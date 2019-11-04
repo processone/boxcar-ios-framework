@@ -26,6 +26,7 @@
 
 #import "BXCSignature.h"
 #import <CommonCrypto/CommonHMAC.h>
+#import "BXCUtilities.h"
 
 @implementation BXCSignature
 
@@ -43,7 +44,7 @@
         
         NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:CC_SHA1_DIGEST_LENGTH];
         
-        NSString *signature = [NSString stringWithString:[HMAC description]];
+        NSString *signature = [BXCUtilities formatedBytesFromDatas:HMAC];
         signature = [signature stringByReplacingOccurrencesOfString:@" " withString:@""];
         signature = [signature stringByReplacingOccurrencesOfString:@"<" withString:@""];
         signature = [signature stringByReplacingOccurrencesOfString:@">" withString:@""];

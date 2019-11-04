@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, BXCAPNSService) {
 /**
  Always used the shared instance class method to access Boxcar instance singleton.
  */
-+ (id)sharedInstance;
++ (Boxcar *)sharedInstance;
 
 /**
  *  Setup the Boxcar service assuming all options are read from BoxcarConfig.plist in application NSBundle.
